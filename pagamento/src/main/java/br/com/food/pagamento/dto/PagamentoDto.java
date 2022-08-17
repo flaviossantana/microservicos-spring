@@ -1,6 +1,6 @@
 package br.com.food.pagamento.dto;
 
-import br.com.food.pagamento.type.Status;
+import br.com.food.pagamento.type.StatusPagamento;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +18,6 @@ public class PagamentoDto {
     private String codigo;
     private Long pedidoId;
     private Long formaPagamentoId;
-    private Status status;
+    private StatusPagamento status;
 
 }

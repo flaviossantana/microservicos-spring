@@ -1,7 +1,7 @@
 package br.com.food.pagamento.model;
 
 
-import br.com.food.pagamento.type.Status;
+import br.com.food.pagamento.type.StatusPagamento;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,12 +14,13 @@ import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
+
 @Entity
-@Table(name = "pagamento")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "pagamentos")
 public class Pagamento {
 
     @Id
@@ -54,9 +55,7 @@ public class Pagamento {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    private Status status;
-
-
-
+    private StatusPagamento status;
 
 }
+
