@@ -1,0 +1,44 @@
+POST localhost:8080/pagamento
+Content-Type: application/json
+
+{
+  "valor": 1254.20,
+  "nome": "Luiz Felipe Gama",
+  "numero": "0001235401285015800",
+  "expiracao": "01/29",
+  "codigo": "694",
+  "pedidoId": 85022,
+  "formaPagamentoId": 3,
+  "status": "CRIADO"
+}
+
+###
+
+GET http://localhost:8080/pagamento
+Accept: application/json
+
+###
+
+GET http://localhost:8080/pagamento/1
+Accept: application/json
+
+###
+
+PUT localhost:8080/pagamento/1
+Content-Type: application/json
+
+{
+  "valor": 1254.20,
+  "nome": "Luiz Felipe Gama",
+  "numero": "0001235401285015800",
+  "expiracao": "01/29",
+  "codigo": "694",
+  "pedidoId": 85022,
+  "formaPagamentoId": 3,
+  "status": "CRIADO"
+}
+
+###
+
+DELETE localhost:8080/pagamento/1
+Content-Type: application/json

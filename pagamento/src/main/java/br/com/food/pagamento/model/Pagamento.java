@@ -34,7 +34,6 @@ public class Pagamento {
     @NotBlank
     @Size(max = 100)
     private String nome;
-
     @NotBlank
     @Size(max = 19)
     private String numero;
