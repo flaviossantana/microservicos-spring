@@ -1,7 +1,7 @@
 CREATE TABLE pagamentos
 (
     id                    bigint(20) NOT NULL AUTO_INCREMENT,
-    valor                 decimal(19, 2) NOT NULL,
+    valor_total           decimal(19, 2) NOT NULL,
     nome                  varchar(100) DEFAULT NULL,
     numero                varchar(19)  DEFAULT NULL,
     expiracao             varchar(7)   DEFAULT NULL,
