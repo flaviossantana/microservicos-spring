@@ -1,4 +1,4 @@
-package br.com.food.pedido;
+package br.com.food.pedido.controller;
 
 import br.com.food.pedido.dto.PedidoDto;
 import br.com.food.pedido.dto.StatusDto;

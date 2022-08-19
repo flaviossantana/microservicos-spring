@@ -1,0 +1,29 @@
+POST localhost:56131/pedidos
+Content-Type: application/json
+
+{
+  "dataHora": 1254.20,
+  "dataHora": 3,
+  "status": "CRIADO",
+  "itens" : []
+}
+
+###
+GET localhost:56131/pedidos
+Content-Type: application/json
+
+
+###
+GET localhost:56131/pedidos/1
+Content-Type: application/json
+
+###
+PUT localhost:56131/pedidos/1/status
+Content-Type: application/json
+
+{
+    "status": "REALIZADO"
+}
+
+###
+PUT localhost:56131/pedidos/1/pago
