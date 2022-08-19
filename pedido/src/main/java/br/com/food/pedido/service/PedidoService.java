@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -30,7 +29,7 @@ public class PedidoService {
                 .findAll()
                 .stream()
                 .map(p -> modelMapper.map(p, PedidoDto.class))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public PedidoDto obterPorId(Long id) {
@@ -66,7 +65,7 @@ public class PedidoService {
         return modelMapper.map(pedido, PedidoDto.class);
     }
 
-    public void aprovarPagamentoPedido(Long id){
+    public void aprovarPagamento(Long id){
         Pedido pedido = repository.porIdComItens(id);
 
         if (pedido == null){
