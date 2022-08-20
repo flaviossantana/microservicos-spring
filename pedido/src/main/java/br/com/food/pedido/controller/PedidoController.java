@@ -4,6 +4,7 @@ import br.com.food.pedido.dto.PedidoDto;
 import br.com.food.pedido.dto.StatusDto;
 import br.com.food.pedido.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -46,6 +47,12 @@ public class PedidoController {
     public ResponseEntity<Void> aprovarPagamento(@PathVariable @NotNull Long id) {
         pedidoService.aprovarPagamento(id);
         return ResponseEntity.ok().build();
+    }
+
+
+    @GetMapping("/config/porta")
+    public String obterPorta(@Value("${local.server.port}") String porta) {
+        return String.format("ACESSADO ATRAVÉS DA PORTA:%s", porta);
     }
 
 }

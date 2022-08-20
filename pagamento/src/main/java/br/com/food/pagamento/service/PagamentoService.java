@@ -1,5 +1,6 @@
 package br.com.food.pagamento.service;
 
+import br.com.food.pagamento.client.PedidoClient;
 import br.com.food.pagamento.dto.PagamentoDto;
 import br.com.food.pagamento.model.Pagamento;
 import br.com.food.pagamento.repository.PagamentoRepository;
@@ -20,6 +21,9 @@ public class PagamentoService {
 
     @Autowired
     private ModelMapper modelMapper;
+
+    @Autowired
+    private PedidoClient pedidoClient;
 
     public Page<PagamentoDto> obterTodos(Pageable paginacao) {
         return pagamentoRepository
@@ -48,6 +52,20 @@ public class PagamentoService {
 
     public void excluir(Long id) {
         pagamentoRepository.deleteById(id);
+    }
+
+    public void confirmarPagamento(Long id) {
+
+        Pagamento pagamento = pagamentoRepository
+                .findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+
+
+        pagamento.setStatus(StatusPagamento.CONFIRMADO);
+        pagamentoRepository.save(pagamento);
+
+        pedidoClient.atualizarPagamento(pagamento.getPedidoId());
+
     }
 
 }
