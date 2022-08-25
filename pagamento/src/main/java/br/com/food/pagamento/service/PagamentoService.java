@@ -55,19 +55,19 @@ public class PagamentoService {
     }
 
     public void confirmarPagamento(Long id) {
-
-        Pagamento pagamento = pagamentoRepository
-                .findById(id)
-                .orElseThrow(EntityNotFoundException::new);
-
-
-        pagamento.setStatus(StatusPagamento.CONFIRMADO);
-        pagamentoRepository.save(pagamento);
-
+        Pagamento pagamento = alterarStatus(id, StatusPagamento.CONFIRMADO);
         pedidoClient.atualizarPagamento(pagamento.getPedidoId());
 
     }
 
+    public Pagamento alterarStatus(Long id, StatusPagamento statusPagamento) {
+        Pagamento pagamento = pagamentoRepository
+                .findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+
+        pagamento.setStatus(statusPagamento);
+        return pagamentoRepository.save(pagamento);
+    }
 }
 
 
